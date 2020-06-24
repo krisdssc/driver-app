@@ -1,0 +1,7 @@
+{
+  "name": "ribshack-rider-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
