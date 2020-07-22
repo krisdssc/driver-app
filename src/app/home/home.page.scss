@@ -1,3 +1,7 @@
+*{
+font-family: 'Roboto', sans-serif;
+}
+
 #container {
   text-align: center;
 
@@ -16,12 +20,97 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+.order-info-container {
+  background-color: white;
+  border: solid #dbdbdb 1px;
+}
+
+ion-title {
+  color: white;
+}
+
+
+.order-info-1{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.order-info-2{
+  color: gray;
+}
+.order-info-2 h2{
+  color: black;
+}
+.order-info-2 p{
+  font-size: 10px;
+}
+
+.order-info-3 {
+  display: flex;
+}
+
+.order-info-3 .order-status{
+  margin-left: 5px;
+  font-weight: bold;
+  color: green;
+}
+
+.order-details {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.qty-price {
+  font-size: 10px;
+}
+
+// received-order-info-container
+.received-order-info{
+  font-size: 10px;
+  color: gray;
+}
+.received-order-info-container{
+  background-color: white;
+}
+
+// UPDATE STATUS div
+.update-div {
+  display: flex;
+}
+.view-orders-btn {
+  width: 50%;
+}
+
+.toolbar{
+  display: flex;
+}
+
+.login-form-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.ribshack-logo {
+  display: block;
+  margin-top: 30%;
+  margin-bottom: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.map{
+  height: 50%;
 }

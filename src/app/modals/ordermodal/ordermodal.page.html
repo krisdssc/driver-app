@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>New Order - Order Information</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card-content class="order-info-container">
+    <div class="order-info-1">
+      <h2><strong>{{order.customerName}}</strong></h2>
+    </div>
+    <div class="order-info-2">
+      <p>Order Number: {{order.orderNum}}</p>
+      <p>Ordered on: {{order.orderDate}}</p>
+    </div>
+  </ion-card-content>
+  <ion-card-content class="order-info-container">
+    <div class="order-info-1">
+      <h2><strong>Order Details</strong></h2>
+      <h2>Ribshack - Ayala</h2>
+    </div> <br>
+    <div class="order-content">
+      <div class="order-details">
+        <h2><strong>{{order.mainCourse}}</strong></h2>
+        <p>₱ 123.00</p>
+      </div>
+      <p class="qty-price">1 x ₱ 123.00</p>
+    </div>
+    <div class="order-content">
+      <div class="order-details">
+        <h2><strong>{{order.desert}}</strong></h2>
+        <p>₱ 123.00</p>
+      </div>
+      <p class="qty-price">1 x ₱ 123.00</p>
+    </div>
+    <div class="order-content">
+      <div class="order-details">
+        <h2><strong>{{order.mainCourse}}</strong></h2>
+        <p>₱ 123.00</p>
+      </div>
+      <p class="qty-price">1 x ₱ 123.00</p>
+    </div>
+  </ion-card-content>
+  <ion-card-content class="order-info-container">
+    <div class="order-info-1">
+      <h2><strong>Delivery Details</strong></h2>
+      <p>Payment: <strong>Cash on Delivery</strong></p>
+    </div>
+    <div class="order-info-2">
+      <p><strong>Address:</strong> 7-14 Don Juan Ave., Villa Teresa Angeles City <br>Pampanga, Philippines.</p>
+      <p><strong>Phone number:</strong>  (02) 631-8024 to 30</p>
+    </div>
+  </ion-card-content>
+  <ion-button  color="primary" expand="full" (click)="closeModal()">
+    ACCEPT ORDER
+  </ion-button>
+</ion-content>

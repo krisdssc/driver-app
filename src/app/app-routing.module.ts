@@ -11,6 +11,26 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'second',
+    loadChildren: () => import('./modals/second/second.module').then( m => m.SecondPageModule)
+  },
+  {
+    path: 'terms',
+    loadChildren: () => import('./terms/terms.module').then( m => m.TermsPageModule)
+  },
+  {
+    path: 'privacy',
+    loadChildren: () => import('./privacy/privacy.module').then( m => m.PrivacyPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'ordermodal',
+    loadChildren: () => import('./modals/ordermodal/ordermodal.module').then( m => m.OrdermodalPageModule)
+  },
 ];
 
 @NgModule({

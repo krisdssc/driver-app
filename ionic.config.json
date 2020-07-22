@@ -1,7 +1,8 @@
 {
   "name": "ribshack-rider-app",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

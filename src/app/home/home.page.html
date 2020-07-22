@@ -1,20 +1,75 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header *ngIf="isLoggedIn()" translucent>
+    <ion-toolbar>
+        <div class="toolbar">
+            <ion-title>Test - Driver</ion-title>
+            <ion-button (click)="signOut()" color="none">Logout</ion-button>
+        </div>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen>
+    <!-- LEAFLET MAP -->
+    <div id="map" style="height: 70%"></div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <div class="login-form-container">
+        <img *ngIf="!isLoggedIn()" class="ribshack-logo" src="https://i.ibb.co/s9zdZ1z/ribshacklogo.png">
+        <firebase-ui></firebase-ui>
+    </div>
+
+    <div *ngIf="customer == null && isLoggedIn(); else orderInfo">
+        <center>
+            <p>No orders available yet.</p>
+        </center>
+    </div>
+    <ng-template #orderInfo>
+        <div *ngIf="isLoggedIn()">
+            <ion-card-content class="received-order-info-container">
+                <label *ngIf="customer.orderNum == '111'"><strong>RECEIVED ORDER:
+                    #{{customer.orderNum}}</strong></label>
+                <label *ngIf="customer.orderNum == ''"><strong>RECEIVED ORDER:</strong> No orders available</label>
+                <p class="received-order-info">Customer: {{customer.customerName}}</p>
+                <p class="received-order-info">Ordered on: {{customer.orderDate}}</p>
+                <p class="received-order-info">Payment: <strong>Cash on Delivery</strong></p>
+            </ion-card-content>
+
+            <ion-card-content class="order-info-container">
+                <div class="order-info-1">
+                    <h2><strong>DELIVERY DETAILS</strong></h2>
+                </div>
+                <div class="order-info-2">
+                    <p><strong>Address:</strong> 7-14 Don Juan Ave., Villa Teresa Angeles City <br>Pampanga,
+                        Philippines.</p>
+                    <p><strong>Phone number:</strong> (02) 631-8024 to 30</p>
+                </div>
+                <div class="order-info-3">
+                    <p>Order Staus: </p>
+                    <p class="order-status">{{customer.orderStatus}}</p>
+                </div>
+            </ion-card-content>
+            <!-- <ion-button (click)="openModal()" color="primary" expand="full">Open Modal</ion-button> -->
+
+            <div class="update-div">
+                <ion-button (click)="openModalWithData()" class="view-orders-btn" color="primary" expand="full">View
+                    Order
+                </ion-button>
+                <ion-button (click)="changeStatusDispatched()" *ngIf="customer.orderStatus == 'Received'"
+                            class="view-orders-btn" color="warning"
+                            expand="full">DISPATCHED
+                </ion-button>
+                <ion-button (click)="changeStatusComplete()" *ngIf="customer.orderStatus == 'Dispatched'"
+                            class="view-orders-btn" color="warning"
+                            expand="full">Complete
+                </ion-button>
+            </div>
+        </div>
+    </ng-template>
 </ion-content>
+
+<ion-footer>
+    <ion-input [(ngModel)]="message" color="primary" rows="1" hidden></ion-input>
+    <form (ngSubmit)="sendMessage()">
+        <ion-button (click)="sendMessage()" [disabled]="message === ''" class="msg-btn" color="primary" fill="clear">
+            PLACE ORDER
+        </ion-button>
+    </form>
+</ion-footer>

@@ -1,0 +1,59 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.order-info-container {
+  background-color: white;
+  border: solid #dbdbdb 1px;
+}
+
+ion-title {
+  color: white;
+}
+
+.order-info-2{
+  color: gray;
+}
+.order-info-2 h2{
+  color: black;
+}
+.order-info-2 p{
+  font-size: 10px;
+}
+
+.order-details {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.qty-price {
+  font-size: 10px;
+}
